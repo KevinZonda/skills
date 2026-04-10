@@ -32,13 +32,15 @@ STRICT RULES (any violation will break LaTeX compilation):
 3. Preserve tabular / tikzpicture / thebibliography environment bodies verbatim.
 4. Preserve ALL \\texttt{{}} / \\verb arguments verbatim (code, paths, identifiers).
 5. Translate ONLY human-readable prose: paragraph text, headings inside \\section{{}}/\\subsection{{}}, captions, abstract text, acknowledgment text.
-6. Do NOT translate these identifiers: CDCalib, detsim, elec, rec, uproot, iminuit, SNiPER, LS_FULL, ACU_DCR_FIX, codearmy, metrics.json, jheppub, pdflatex, EOS.
-7. Standard physics translations:
+6. NEVER introduce new LaTeX commands that are not in the original. If running text says "Section~\\ref{{sec:xxx}} describes ...", translate it as prose (e.g. "第~\\ref{{sec:xxx}}~节描述了……") — do NOT wrap it in \\section{{}}.
+   Original rules 6–8 become 7–9:
+7. Do NOT translate these identifiers: CDCalib, detsim, elec, rec, uproot, iminuit, SNiPER, LS_FULL, ACU_DCR_FIX, codearmy, metrics.json, jheppub, pdflatex, EOS.
+8. Standard physics translations:
    photoelectron(s)→光电子; dark count rate→暗计数率; liquid scintillator→液体闪烁体;
    calibration→刻度; simulation→模拟; detector→探测器; PMT→光电倍增管(PMT);
    neutrino→中微子; scintillation→闪烁; readout window→读出窗口;
    transit-time spread→渡越时间弥散; resolution→分辨率; baseline→基准线; campaign→调优活动.
-8. Output ONLY the translated LaTeX fragment — no markdown fences, no explanations.
+9. Output ONLY the translated LaTeX fragment — no markdown fences, no explanations.
 """
 
 
@@ -179,8 +181,25 @@ def main():
         print(f"WARNING: {len(failed)} chunk(s) failed; original text kept.", file=sys.stderr)
     total = n
 
+    # Auto-inject xeCJK support when target is Chinese
+    target_lower = args.target.lower()
+    is_chinese = any(kw in target_lower for kw in ("chinese", "中文", "简体", "繁體", "zh"))
+    if is_chinese:
+        joined = "\n".join(r for r in results if r is not None)
+        # Replace pdflatex directive with xelatex
+        joined = joined.replace("%!TEX program = pdflatex", "%!TEX program = xelatex")
+        # Insert xeCJK after \documentclass line if not already present
+        if "xeCJK" not in joined and "\\documentclass" in joined:
+            joined = joined.replace(
+                "\\documentclass",
+                "\\usepackage{xeCJK}\n\\documentclass",
+                1)
+        output_text = joined
+    else:
+        output_text = "\n".join(r for r in results if r is not None)
+
     with open(args.output, "w", encoding="utf-8") as f:
-        f.write("\n".join(results))
+        f.write(output_text)
 
     print(json.dumps({"output_file": args.output, "input_file": args.input,
                       "source_lang": args.source or "auto",
