@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic Slides"
+  short_description: "Create rigorous academic slide decks"
+  default_prompt: "Use $academic-slides to create or revise a white-background academic slide deck."

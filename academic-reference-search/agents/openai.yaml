@@ -1,0 +1,4 @@
+interface:
+  display_name: "Academic References"
+  short_description: "Search papers, references, PubMed"
+  default_prompt: "Find papers by keyword, title, author, DOI, or PMID and return the most relevant references with concise citation metadata. Prefer NCBI for medical or biomedical searches."
