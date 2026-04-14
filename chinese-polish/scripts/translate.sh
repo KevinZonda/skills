@@ -91,7 +91,7 @@ PAYLOAD=$(jq -n \
     }')
 
 # ---------- 调用 API ----------
-RESPONSE=$(curl -s -w "\n%{http_code}" \
+RESPONSE=$(curl -s --noproxy "api.deepseek.com" -w "\n%{http_code}" \
     --max-time 60 \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer ${DEEPSEEK_API_KEY}" \
