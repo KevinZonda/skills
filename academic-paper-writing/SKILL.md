@@ -1,13 +1,13 @@
 ---
 name: academic-paper-writing
-description: Guide and draft academic papers (high-energy physics and machine learning focus) following a rigorous section-by-section structure: Abstract, Introduction, Method, Results, Discussion, Conclusion. Use when the user needs to write, review, restructure, or improve an academic manuscript — including drafting sections, critiquing drafts against the structure below, or generating outline scaffolds.
+description: Guide and draft academic papers (machine learning focus) following a rigorous section-by-section structure: Abstract, Introduction, Method, Results, Discussion, Conclusion. Use when the user needs to write, review, restructure, or improve an academic manuscript — including drafting sections, critiquing drafts against the structure below, or generating outline scaffolds.
 ---
 
 # Academic Paper Writing
 
 ## Overview
 
-This skill provides a prescriptive structure for writing research papers, primarily targeting high-energy physics (HEP) and machine learning (ML) audiences. Each section has a defined internal logic. Follow it both when drafting from scratch and when critiquing an existing draft.
+This skill provides a prescriptive structure for writing research papers, primarily targeting machine learning (ML) audiences. Each section has a defined internal logic. Follow it both when drafting from scratch and when critiquing an existing draft.
 
 ---
 
@@ -55,14 +55,6 @@ State concisely: (1) which gap this paper addresses, (2) the high-level research
 
 Follow the conventions of the relevant sub-field:
 
-**High-Energy Physics (HEP):**
-- Detector description and data-taking conditions (beam energy, luminosity, run period)
-- Monte Carlo simulation and generator settings
-- Event selection and cut flow with efficiency and background rejection
-- Observable definitions, kinematic variables, and units
-- Systematic uncertainty sources and estimation procedure
-- Statistical analysis framework (likelihood, frequentist / Bayesian choice)
-
 **Machine Learning:**
 - Dataset description (source, size, splits, preprocessing, class balance)
 - Model architecture and key design choices with justification
@@ -72,7 +64,7 @@ Follow the conventions of the relevant sub-field:
 - Baseline models and comparison protocol
 - Implementation details: framework, hardware, training time, random seeds
 
-For combined HEP+ML papers (e.g., particle reconstruction with deep learning), cover both blocks in logical order — detector and data first, then the ML pipeline applied to that data.
+For combined ML papers (e.g., particle reconstruction with deep learning), cover both blocks in logical order — detector and data first, then the ML pipeline applied to that data.
 
 ---
 

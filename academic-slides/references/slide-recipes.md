@@ -75,7 +75,7 @@
 
 - Keep 2-4 bullets.
 - Each bullet should be a conclusion, not a topic name.
-- Tie conclusions back to the talk goal or physics question.
+- Tie conclusions back to the talk goal or machine learning question.
 
 ## Acknowledgement slide
 

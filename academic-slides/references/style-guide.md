@@ -102,7 +102,7 @@
 
 - Check spelling and grammar.
 - Check abbreviations and define nonstandard ones.
-- Check physical quantities, units, superscripts, and subscripts.
+- Check mathematical notations, e.g., superscripts, subscripts, and equations.
 - Check axis labels and tick marks.
 - Check slide numbers.
 - Check that each slide has one clear message.
