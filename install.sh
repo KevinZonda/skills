@@ -1,5 +1,9 @@
 function install_skill() {
     local skill_name=$1
+    if [ -e ~/.agents/skills/$skill_name ] || [ -L ~/.agents/skills/$skill_name ]; then
+        echo "Skill $skill_name already exists, skipping..."
+        return
+    fi
     ln -sf ./$skill_name ~/.agents/skills/$skill_name
 }
 
