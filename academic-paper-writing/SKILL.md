@@ -1,6 +1,6 @@
 ---
 name: academic-paper-writing
-description: Guide and draft academic papers (machine learning focus) following a rigorous section-by-section structure: Abstract, Introduction, Method, Results, Discussion, Conclusion. Use when the user needs to write, review, restructure, or improve an academic manuscript — including drafting sections, critiquing drafts against the structure below, or generating outline scaffolds.
+description: "Guide and draft academic papers (machine learning focus) following a rigorous section-by-section structure: Abstract, Introduction, Method, Results, Discussion, Conclusion. Use when the user needs to write, review, restructure, or improve an academic manuscript — including drafting sections, critiquing drafts against the structure below, or generating outline scaffolds."
 ---
 
 # Academic Paper Writing
